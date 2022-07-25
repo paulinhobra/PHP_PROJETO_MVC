@@ -4,9 +4,10 @@ class ModelPostagem{
 
     public static function selecionarPostagens(){
         
-        $con = new PDO('mysql: host=localhost; dbname=db_site;', 'root', 'root');
+        $con = Conexao::getConn();
 
         var_dump($con);
+       
     }
 
 }
