@@ -13,7 +13,7 @@ class HomeController{
             $template = $twig->load('home.html');
 
             $parametros = [];
-            $parametros['nome'] = "Paulo";
+            $parametros['postagens'] = $postagens;
 
             $conteudo = $template->render($parametros);           
            
