@@ -26,6 +26,20 @@ class ModelPostagem{
 
     public static function selecionarPostId($id){
 
+            $con = Conexao::getConn();
+
+			$sql = "SELECT * FROM postagem WHERE id = :id";
+			$sql = $con->prepare($sql);
+			$sql->bindValue(':id', PDO::PARAM_INT);
+			$sql->execute();
+
+			$resultado = $sql->fetchObject('Postagem');
+
+			if (!$resultado) {
+				throw new Exception("Não foi encontrado nenhum registro no banco");	
+			} 
+
+			return $resultado;
     }
 
 }

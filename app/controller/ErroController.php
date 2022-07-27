@@ -3,7 +3,7 @@
 class ErroController{
 
     public function index(){
-        echo "ERROR!";
+        echo "Página de Erro!";
     }
 
 }
