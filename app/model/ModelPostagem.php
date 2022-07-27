@@ -30,10 +30,10 @@ class ModelPostagem{
 
 			$sql = "SELECT * FROM postagem WHERE id = :id";
 			$sql = $con->prepare($sql);
-			$sql->bindValue(':id', PDO::PARAM_INT);
-			$sql->execute();
+			$sql->bindValue(':id', $id, PDO::PARAM_INT);
+			$sql->execute();            
 
-			$resultado = $sql->fetchObject('Postagem');
+			$resultado = $sql->fetchObject();
 
 			if (!$resultado) {
 				throw new Exception("Não foi encontrado nenhum registro no banco");	
