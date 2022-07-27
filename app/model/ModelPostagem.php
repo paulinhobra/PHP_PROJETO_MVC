@@ -24,4 +24,8 @@ class ModelPostagem{
        
     }
 
+    public static function selecionarPostId($id){
+
+    }
+
 }
