@@ -1,6 +1,6 @@
 <?php
 
-class SobreController{
+class PostController{
 
     public function index($params){        
         
