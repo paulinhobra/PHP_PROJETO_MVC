@@ -6,7 +6,9 @@ class PostController{
         
         try {            
 
-			$postagem = ModelPostagem::selecionarPostId($params);            
+			$postagem = ModelPostagem::selecionarPostId($params);   
+            echo "<pre>";
+            print_r($postagem); echo "</pre>"; exit;         
 
             $loader = new \Twig\Loader\FilesystemLoader('app/view');
             $twig = new \Twig\Environment($loader);
