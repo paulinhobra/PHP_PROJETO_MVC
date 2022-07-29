@@ -5,5 +5,17 @@
         </header>
         
         <p>{{conteudo}}</p>
+        <br/>
+        <hr/>
+        <br/>
+
+        <?php var_dump($comentarios); exit; ?>
+
+        {% for comentario in comentarios %}
+            <h4>{{ comentario.nome }}</h4>
+            <p>{{ comentario.mensagem }}</p>
+            <br/>
+        {% endfor %}
+
     </article> 
 </section>

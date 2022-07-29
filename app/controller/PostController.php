@@ -6,9 +6,7 @@ class PostController{
         
         try {            
 
-			$postagem = ModelPostagem::selecionarPostId($params);   
-            echo "<pre>";
-            print_r($postagem); echo "</pre>"; exit;         
+			$postagem = ModelPostagem::selecionarPostId($params);                      
 
             $loader = new \Twig\Loader\FilesystemLoader('app/view');
             $twig = new \Twig\Environment($loader);
@@ -17,6 +15,7 @@ class PostController{
             $parametros = [];
             $parametros['titulo'] = $postagem->titulo;
             $parametros['conteudo'] = $postagem->conteudo;
+            $parametros['comentarios'] = $postagem->comentarios;
 
             $conteudo = $template->render($parametros);
 
