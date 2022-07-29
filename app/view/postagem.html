@@ -11,11 +11,14 @@
 
         <?php var_dump($comentarios); exit; ?>
 
-        {% for comentario in comentarios %}
-            <h4>{{ comentario.nome }}</h4>
-            <p>{{ comentario.mensagem }}</p>
-            <br/>
-        {% endfor %}
-
+        {% if comentarios == false %}
+            <p>Nenhum comentário encontrado para essa postagem!</p>
+        {% else %}    
+            {% for comentario in comentarios %}
+                <h4>{{ comentario.nome }}</h4>
+                <p>{{ comentario.mensagem }}</p>
+                <br/>
+            {% endfor %}
+        {% endif %}
     </article> 
 </section>

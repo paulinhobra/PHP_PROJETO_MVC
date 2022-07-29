@@ -38,11 +38,7 @@ class ModelPostagem{
 			if (!$resultado) {
 				throw new Exception("Não foi encontrado nenhum registro no banco");	
 			} else{
-                $resultado->comentarios = ModelComentario::selecionarComentariosId($resultado->id);
-
-                if(!$resultado->comentarios){
-                    $resultado->comentarios = "Ainda não existem comentários para essa postagem!";
-                }
+                $resultado->comentarios = ModelComentario::selecionarComentariosId($resultado->id);                
             }
 
 			return $resultado;
