@@ -44,4 +44,27 @@ class ModelPostagem{
 			return $resultado;
     }
 
+    public static function insert($dados){
+
+        if(empty($dados['titulo']) || empty($dados['conteudo'])){
+
+            throw new Exception("Preencha todos os campos!");
+            
+            return false;
+
+        }
+
+        $con = Conexao::getConn();
+
+        $sql = "INSERT INTO postagem(titulo, conteudo) VALUES(:tit, :cont)";
+
+        $sql = $con->prepare($sql);
+
+        $sql->bindValue(':tit', $dados['titulo']);
+        $sql->bindValue(':cont', $dados['conteudo']);        
+
+        $res = $sql->execute();        
+
+    }
+
 }

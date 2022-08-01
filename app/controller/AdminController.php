@@ -27,7 +27,9 @@ class AdminController{
     }
 
     public function insert(){
-        var_dump($_POST);
+        
+        ModelPostagem::insert($_POST);
+
     }
 
 }
