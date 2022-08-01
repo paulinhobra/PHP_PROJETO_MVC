@@ -8,7 +8,12 @@ class AdminController{
         $twig = new \Twig\Environment($loader);
         $template = $twig->load('admin.html');
 
-        $conteudo = $template->render();
+        $objPost = ModelPostagem::selecionarPostagens();
+
+        $parametros = array();
+        $parametros['postagens'] = $objPost;
+
+        $conteudo = $template->render($parametros);
 
         echo $conteudo;
 
@@ -28,7 +33,19 @@ class AdminController{
 
     public function insert(){
         
-        ModelPostagem::insert($_POST);
+        try{
+
+            ModelPostagem::insert($_POST);
+
+            echo '<script>alert("Publicação inserida com sucesso!")</script>';
+            echo '<script>location.href="/?pagina=admin&metodo=index"</script>';
+
+        }catch(Exception $e){
+
+            echo '<script>alert("'.$e->getMessage().'")</script>';
+            echo '<script>location.href="/?pagina=admin&metodo=create"</script>';
+
+        }        
 
     }
 

@@ -63,7 +63,15 @@ class ModelPostagem{
         $sql->bindValue(':tit', $dados['titulo']);
         $sql->bindValue(':cont', $dados['conteudo']);        
 
-        $res = $sql->execute();        
+        $res = $sql->execute();
+        
+        if($res == 0){
+            throw new Exception("Falha ao inserir publicação");
+            
+            return false;
+        }
+
+        return true;
 
     }
 
