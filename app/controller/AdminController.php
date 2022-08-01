@@ -16,8 +16,18 @@ class AdminController{
 
     public function create(){
 
-        echo 'Método Create';
+        $loader = new \Twig\Loader\FilesystemLoader('app/view');
+        $twig = new \Twig\Environment($loader);
+        $template = $twig->load('create.html');
 
+        $conteudo = $template->render();
+
+        echo $conteudo;
+
+    }
+
+    public function insert(){
+        var_dump($_POST);
     }
 
 }
