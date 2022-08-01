@@ -14,4 +14,10 @@ class AdminController{
 
     }
 
+    public function create(){
+
+        echo 'Método Create';
+
+    }
+
 }
