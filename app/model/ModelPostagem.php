@@ -98,4 +98,25 @@ class ModelPostagem{
 
     }
 
+    public static function delete($dados){
+
+        $con = Conexao::getConn();
+
+        $sql = "DELETE FROM postagem WHERE id = :id";
+        $sql = $con->prepare($sql);   
+
+        $sql->bindValue(':id', $dados);
+
+        $res = $sql->execute();
+
+        if($res == 0){
+            throw new Exception("Falha ao deletar publicação!");
+
+            return false;
+        }
+
+        return true;
+
+    }
+
 }

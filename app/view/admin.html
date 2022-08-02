@@ -16,7 +16,7 @@
         <th>{{ post.id }}</th>
         <th>{{ post.titulo }}</th>
         <th><a href="/?pagina=admin&metodo=change&id={{ post.id }}"> ATUALIZAR </a></th>
-        <th>DELETAR</th>
+        <th><a href="/?pagina=admin&metodo=delete&id={{ post.id }}">DELETAR</a></th>
     </tr>
     {% endfor %}
 </table>

@@ -86,4 +86,22 @@ class AdminController{
 
     }
 
+    public function delete(int $dados){
+
+        try{
+
+            ModelPostagem::delete($dados);   
+
+            echo '<script>alert("Publicação deletada com sucesso!")</script>';
+            echo '<script>location.href="/?pagina=admin&metodo=index"</script>';
+
+        }catch(Exception $e){
+
+            echo '<script>alert("'.$e->getMessage().'")</script>';
+            echo '<script>location.href="/?pagina=admin&metodo=index"</script>';
+
+        }      
+
+    }
+
 }
