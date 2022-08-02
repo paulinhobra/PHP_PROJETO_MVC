@@ -75,4 +75,27 @@ class ModelPostagem{
 
     }
 
+    public static function update($dados){
+
+        $con = Conexao::getConn();
+
+        $sql = "UPDATE postagem SET titulo = :tit, conteudo = :cont WHERE id = :id";
+        $sql = $con->prepare($sql);       
+
+        $sql->bindValue(':tit', $dados['titulo']);
+        $sql->bindValue(':cont', $dados['conteudo']);
+        $sql->bindValue(':id', $dados['id']);
+
+        $res = $sql->execute();
+
+        if($res == 0){
+            throw new Exception("Falha ao alterar publicação!");
+
+            return false;
+        }
+
+        return true;
+
+    }
+
 }

@@ -68,4 +68,22 @@ class AdminController{
 
     }
 
+    public function update($dados){
+        
+        try{
+
+            ModelPostagem::update($_POST);   
+
+            echo '<script>alert("Publicação alterada com sucesso!")</script>';
+            echo '<script>location.href="/?pagina=admin&metodo=index"</script>';
+
+        }catch(Exception $e){
+
+            echo '<script>alert("'.$e->getMessage().'")</script>';
+            echo '<script>location.href="/?pagina=admin&metodo=change&id='.$_POST['id'].'"</script>';
+
+        }             
+
+    }
+
 }
