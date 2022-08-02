@@ -49,4 +49,16 @@ class AdminController{
 
     }
 
+    public function change($dados){
+
+        $loader = new \Twig\Loader\FilesystemLoader('app/view');
+        $twig = new \Twig\Environment($loader);
+        $template = $twig->load('update.html');
+
+        $conteudo = $template->render();
+
+        echo $conteudo;
+
+    }
+
 }
