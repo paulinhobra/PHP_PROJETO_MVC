@@ -1,13 +1,63 @@
-<h1>Criar publicação</h1>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-<form action="/?pagina=admin&metodo=insert" method="POST">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Rubik:wght@300;700&display=swap');
 
-    <span>Título</span><br/>
-    <input type="text" name="titulo"><br/><br/>
+        .topo{
+            font-family: "Rubik";
+            font-weight: 700;
+            text-transform: uppercase;
+        }
 
-    <span>Conteúdo</span><br/>
-    <textarea name="conteudo" cols="30" rows="5"></textarea><br/><br/>
+        form{
+            font-family: "Rubik";
+            font-size: 16px;
+            font-weight: bold;
+        }
 
-    <input type="submit" value="Cadastrar">
+        .btn{            
+            padding: 5px;            
+            border-radius: 10px;
+            text-transform: uppercase;
+            color: #fff;
+            background-color: rgb(5, 116, 42);
+            border: 2px solid #3ca564; 
+        }
 
-</form>
+        .btn:hover{
+            transition: .5s;
+            cursor: pointer;
+            background-color: #3ca564; 
+            border: 2px solid rgb(5, 116, 42);
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="topo">
+        <h1>Criar publicação</h1>
+    </div>
+    
+
+    <form action="/?pagina=admin&metodo=insert" method="POST">
+
+        <span>Título</span><br/>
+        <input type="text" name="titulo"><br/><br/>
+
+        <span>Conteúdo</span><br/>
+        <textarea name="conteudo" cols="30" rows="5"></textarea><br/><br/>
+
+        <input class="btn" type="submit" value="Cadastrar">
+
+    </form>
+    
+</body>
+</html>
+

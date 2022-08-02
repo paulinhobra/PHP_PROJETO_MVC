@@ -1,22 +1,118 @@
-<h1>Gerenciador de Conteúdo</h1>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-<a href="/?pagina=admin&metodo=create">Criar publicação</a><br/><br/>
-<hr/>
-<br/>
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>TÍTULO</th>
-        <th>ATUALIZAR</th>
-        <th>DELETAR</th>
-    </tr>
+    <style>
 
-    {% for post in postagens %}
-    <tr>
-        <th>{{ post.id }}</th>
-        <th>{{ post.titulo }}</th>
-        <th><a href="/?pagina=admin&metodo=change&id={{ post.id }}"> ATUALIZAR </a></th>
-        <th><a href="/?pagina=admin&metodo=delete&id={{ post.id }}">DELETAR</a></th>
-    </tr>
-    {% endfor %}
-</table>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Rubik:wght@300;700&display=swap');
+
+        .topo{
+            font-family: "Rubik";
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        form{
+            font-family: "Rubik";
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .link {
+            text-decoration: none;
+            border: 1px solid #ccc;
+            padding: 5px;
+            text-transform: uppercase;
+            background-color: #3ca564;            
+            color: #fff;
+            font-size: 12px;
+            font-weight: bolder;
+        }
+
+        .link:hover{
+            background-color: #23633c;
+            transition: .5s;
+        }
+
+        .link-tab-up {
+            text-decoration: none;            
+            padding: 5px;
+            text-transform: uppercase;
+            background-color: #246ece; 
+        }
+        .link-tab-up a{
+            text-decoration: none;
+            color: #fff;            
+            font-size: 12px;
+            font-weight: bolder;           
+        }
+
+        .link-tab-up:hover{
+            background-color: #124991; 
+            transition: .5s;
+        }
+
+        .link-tab-del {
+            text-decoration: none;            
+            padding: 5px;
+            text-transform: uppercase;
+            background-color: #b80a35; 
+        }
+        .link-tab-del a{
+            text-decoration: none;
+            color: #fff;            
+            font-size: 12px;
+            font-weight: bolder;           
+        }
+
+        .link-tab-del:hover{
+            background-color: #75031f;  
+            transition: .5s;
+        }
+
+        table {
+            border-collapse: collapse;            
+        }
+
+        .cab-tab{
+            background-color: #000;
+            color: #ccc;
+            padding: 7px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    
+    <div class="topo">
+        <h1>Gerenciador de Conteúdo</h1>
+    </div>    
+
+    <a href="/?pagina=admin&metodo=create" class="link">CADASTRAR</a><br/><br/>
+    <hr/>
+    <br/>
+    <table border="1">
+        <tr>
+            <th class="cab-tab">ID</th>
+            <th class="cab-tab">TÍTULO</th>
+            <th class="cab-tab">ATUALIZAR</th>
+            <th class="cab-tab">DELETAR</th>
+        </tr>
+
+        {% for post in postagens %}
+        <tr>
+            <th>{{ post.id }}</th>
+            <th>{{ post.titulo }}</th>
+            <th class="link-tab-up"><a href="/?pagina=admin&metodo=change&id={{ post.id }}" > ATUALIZAR </a></th>
+            <th class="link-tab-del"><a href="/?pagina=admin&metodo=delete&id={{ post.id }}">DELETAR</a></th>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
