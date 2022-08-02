@@ -55,7 +55,14 @@ class AdminController{
         $twig = new \Twig\Environment($loader);
         $template = $twig->load('update.html');
 
-        $conteudo = $template->render();
+        $post = ModelPostagem::selecionarPostId($dados);       
+
+        $parametros = array();
+        $parametros['id'] = $post->id;
+        $parametros['titulo'] = $post->titulo;
+        $parametros['conteudo'] = $post->conteudo;
+
+        $conteudo = $template->render($parametros);
 
         echo $conteudo;
 
